@@ -1,0 +1,33 @@
+{
+  "sub": {
+    "mqttVersion": 5,
+    "hostname": "",
+    "clientId": "",
+    "clean": true,
+    "protocol": "mqtts",
+    "reconnectPeriod": 1000,
+    "maximunReconnectTimes": 10,
+    "reqProblemInfo": true,
+    "port": 8883,
+    "username": "",
+    "password": "",
+    "topic": []
+  },
+  "pub": {
+    "message": "",
+    "qos": 0,
+    "mqttVersion": 5,
+    "hostname": "",
+    "clientId": "",
+    "clean": true,
+    "keepalive": 30,
+    "protocol": "mqtts",
+    "reconnectPeriod": 1000,
+    "maximunReconnectTimes": 10,
+    "reqProblemInfo": true,
+    "port": 8883,
+    "username": "",
+    "password": "",
+    "topic": ""
+  }
+}

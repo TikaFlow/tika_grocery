@@ -1,100 +1,100 @@
-# åŠ è½½Windows.Formsç¨‹åºé›†
+# ¼ÓÔØWindows.Forms³ÌĞò¼¯
 Add-Type -AssemblyName System.Windows.Forms
-# åŠ è½½PresentationFrameworkç¨‹åºé›†
+# ¼ÓÔØPresentationFramework³ÌĞò¼¯
 Add-Type -AssemblyName PresentationFramework
 
-# åˆ›å»ºNotifyIconå¯¹è±¡
+# ´´½¨NotifyIcon¶ÔÏó
 $notifyIcon = New-Object System.Windows.Forms.NotifyIcon
-# è®¾ç½®å›¾æ ‡æ–‡ä»¶çš„è·¯å¾„
+# ÉèÖÃÍ¼±êÎÄ¼şµÄÂ·¾¶
 $iconFilePath = "clock.ico"
-# ä»æŒ‡å®šæ–‡ä»¶ä¸­æå–å›¾æ ‡ï¼Œå¹¶å°†å…¶è®¾ç½®ä¸ºæ‰˜ç›˜å›¾æ ‡
+# ´ÓÖ¸¶¨ÎÄ¼şÖĞÌáÈ¡Í¼±ê£¬²¢½«ÆäÉèÖÃÎªÍĞÅÌÍ¼±ê
 $notifyIcon.Icon = [System.Drawing.Icon]::ExtractAssociatedIcon($iconFilePath)
-# è®¾ç½®æ‰˜ç›˜å›¾æ ‡å¯è§
+# ÉèÖÃÍĞÅÌÍ¼±ê¿É¼û
 $notifyIcon.Visible = $true
-# é»˜è®¤å¯æ‹–åŠ¨
+# Ä¬ÈÏ¿ÉÍÏ¶¯
 $isDrag = $true
-# è®¾ç½®æ‰˜ç›˜å›¾æ ‡çš„æç¤ºæ–‡æœ¬
-$notifyIcon.Text = "åŒå‡»é€€å‡ºï¼Œå½“å‰å¯æ‹–åŠ¨ï¼š" + $isDrag
-# ç¿»è½¬boolçš„å‡½æ•°ï¼Œå¿…é¡»ç”¨å¼•ç”¨
+# ÉèÖÃÍĞÅÌÍ¼±êµÄÌáÊ¾ÎÄ±¾
+$notifyIcon.Text = "Ë«»÷ÍË³ö£¬µ±Ç°¿ÉÍÏ¶¯£º" + $isDrag
+# ·­×ªboolµÄº¯Êı£¬±ØĞëÓÃÒıÓÃ
 function reverse([ref]$arg) {
-	# ç¿»è½¬
+    # ·­×ª
     $arg.Value = -not $arg.Value
 }
-# ç‚¹å‡»åˆ‡æ¢
+# µã»÷ÇĞ»»
 $notifyIcon.add_MouseClick({
-	reverse ([ref]$isDrag)
-	$notifyIcon.Text = "åŒå‡»é€€å‡ºï¼Œå½“å‰å¯æ‹–åŠ¨ï¼š" + $isDrag + $form.Left
+    reverse ([ref]$isDrag)
+    $notifyIcon.Text = "Ë«»÷ÍË³ö£¬µ±Ç°¿ÉÍÏ¶¯£º" + $isDrag + $form.Left
 })
-# åŒå‡»æ‰˜ç›˜å›¾æ ‡æ—¶ç»ˆæ­¢è„šæœ¬
+# Ë«»÷ÍĞÅÌÍ¼±êÊ±ÖÕÖ¹½Å±¾
 $notifyIcon.add_MouseDoubleClick({
-	$form.Close()
+    $form.Close()
 })
 
-# åˆ›å»ºæ ‡ç­¾å¯¹è±¡ï¼Œç”¨äºæ˜¾ç¤ºæ—¶é—´
+# ´´½¨±êÇ©¶ÔÏó£¬ÓÃÓÚÏÔÊ¾Ê±¼ä
 $label = New-Object System.Windows.Controls.Label
-$label.Foreground = "White" # å­—ä½“é¢œè‰²ä¸ºç™½è‰²
-$label.FontFamily = "å¾®è½¯é›…é»‘" # å­—ä½“ä¸ºå¾®è½¯é›…é»‘
-$label.FontWeight = "Normal" # å­—ä½“ç²—ç»†ä¸ºæ­£å¸¸
-$label.FontSize = 24 # å­—ä½“å¤§å°ä¸º24
-$label.HorizontalAlignment = "Left" # æ°´å¹³å¯¹é½æ–¹å¼ä¸ºå·¦å¯¹é½
-$label.VerticalAlignment = "Center" # å‚ç›´å¯¹é½æ–¹å¼ä¸ºå±…ä¸­å¯¹é½
-$label.Margin = New-Object System.Windows.Thickness(0) # æ ‡ç­¾å¤–è¾¹è·ä¸º0
-$label.Padding = New-Object System.Windows.Thickness(0) # æ ‡ç­¾å†…è¾¹è·ä¸º0
-# ä¸ºæ ‡ç­¾æ·»åŠ ä¸€ä¸ª0.2é€æ˜åº¦çš„é»‘è‰²èƒŒæ™¯
+$label.Foreground = "White" # ×ÖÌåÑÕÉ«Îª°×É«
+$label.FontFamily = "Î¢ÈíÑÅºÚ" # ×ÖÌåÎªÎ¢ÈíÑÅºÚ
+$label.FontWeight = "Normal" # ×ÖÌå´ÖÏ¸ÎªÕı³£
+$label.FontSize = 24 # ×ÖÌå´óĞ¡Îª24
+$label.HorizontalAlignment = "Left" # Ë®Æ½¶ÔÆë·½Ê½Îª×ó¶ÔÆë
+$label.VerticalAlignment = "Center" # ´¹Ö±¶ÔÆë·½Ê½Îª¾ÓÖĞ¶ÔÆë
+$label.Margin = New-Object System.Windows.Thickness(0) # ±êÇ©Íâ±ß¾àÎª0
+$label.Padding = New-Object System.Windows.Thickness(0) # ±êÇ©ÄÚ±ß¾àÎª0
+# Îª±êÇ©Ìí¼ÓÒ»¸ö0.2Í¸Ã÷¶ÈµÄºÚÉ«±³¾°
 $label.Background = New-Object System.Windows.Media.SolidColorBrush((New-Object System.Windows.Media.ColorConverter).ConvertFromString("#33000000"))
 
-# åˆ›å»ºå®šæ—¶å™¨å¯¹è±¡ï¼Œç”¨äºå®šæ—¶æ›´æ–°æ—¶é—´
+# ´´½¨¶¨Ê±Æ÷¶ÔÏó£¬ÓÃÓÚ¶¨Ê±¸üĞÂÊ±¼ä
 $timer = New-Object System.Windows.Threading.DispatcherTimer
-# è®¾ç½®å®šæ—¶å™¨æ—¶é—´é—´éš”ä¸º1ç§’
+# ÉèÖÃ¶¨Ê±Æ÷Ê±¼ä¼ä¸ôÎª1Ãë
 $timer.Interval = [TimeSpan]::FromMilliseconds(200)
-# æ·»åŠ å®šæ—¶å™¨Tickäº‹ä»¶å¤„ç†ç¨‹åºï¼Œæ›´æ–°æ ‡ç­¾å†…å®¹
+# Ìí¼Ó¶¨Ê±Æ÷TickÊÂ¼ş´¦Àí³ÌĞò£¬¸üĞÂ±êÇ©ÄÚÈİ
 $timer.add_Tick({
-	# è·å–å½“å‰æ—¶é—´ï¼Œæ ¼å¼åŒ–ä¸º"HH:mm:ss"çš„å­—ç¬¦ä¸²
-	$time = Get-Date -Format "HH:mm:ss"
-	# æ›´æ–°æ ‡ç­¾å†…å®¹
-	$label.Content = $time
-	# è‡ªåŠ¨è´´è¾¹
-	$form.Top = 0
+    # »ñÈ¡µ±Ç°Ê±¼ä£¬¸ñÊ½»¯Îª"HH:mm:ss"µÄ×Ö·û´®
+    $time = Get-Date -Format "HH:mm:ss"
+    # ¸üĞÂ±êÇ©ÄÚÈİ
+    $label.Content = $time
+    # ×Ô¶¯Ìù±ß
+    $form.Top = 0
 })
 
-# åˆ›å»ºçª—å£å¯¹è±¡ï¼Œç”¨äºæ˜¾ç¤ºæ—¶é—´æ ‡ç­¾
+# ´´½¨´°¿Ú¶ÔÏó£¬ÓÃÓÚÏÔÊ¾Ê±¼ä±êÇ©
 $form = New-Object System.Windows.Window
-$form.AllowsTransparency = $true # å…è®¸é€æ˜åº¦
-$form.Background = "Transparent" # èƒŒæ™¯é€æ˜
-$form.BorderThickness = 0 # è¾¹æ¡†åšåº¦ä¸º0
-$form.WindowStyle = "None" # æ— è¾¹æ¡†çª—å£
-$form.ResizeMode = "NoResize" # ç¦æ­¢çª—å£å¤§å°è°ƒæ•´
-$form.Topmost = $true # ç½®é¡¶
-$form.Width = 100 # çª—å£å®½åº¦ä¸º100
-$form.Height = 30 # çª—å£é«˜åº¦ä¸º30
-# çª—å£åˆ°å±å¹•å³ä¾§çš„è·ç¦»åˆå§‹ä¸º512
+$form.AllowsTransparency = $true # ÔÊĞíÍ¸Ã÷¶È
+$form.Background = "Transparent" # ±³¾°Í¸Ã÷
+$form.BorderThickness = 0 # ±ß¿òºñ¶ÈÎª0
+$form.WindowStyle = "None" # ÎŞ±ß¿ò´°¿Ú
+$form.ResizeMode = "NoResize" # ½ûÖ¹´°¿Ú´óĞ¡µ÷Õû
+$form.Topmost = $true # ÖÃ¶¥
+$form.Width = 100 # ´°¿Ú¿í¶ÈÎª100
+$form.Height = 30 # ´°¿Ú¸ß¶ÈÎª30
+# ´°¿Úµ½ÆÁÄ»ÓÒ²àµÄ¾àÀë³õÊ¼Îª512
 $form.Left = [System.Windows.SystemParameters]::PrimaryScreenWidth - 512
-# çª—å£åˆ°å±å¹•é¡¶éƒ¨çš„è·ç¦»ä¸º0
+# ´°¿Úµ½ÆÁÄ»¶¥²¿µÄ¾àÀëÎª0
 $form.Top = 0
-# ä¸åœ¨ä»»åŠ¡æ æ˜¾ç¤º
+# ²»ÔÚÈÎÎñÀ¸ÏÔÊ¾
 $form.ShowInTaskbar = $false
-# æ·»åŠ æ‹–åŠ¨åŠŸèƒ½
+# Ìí¼ÓÍÏ¶¯¹¦ÄÜ
 $form.add_MouseLeftButtonDown({
-	if ($isDrag){
-		$form.DragMove()
-	}
+    if ($isDrag){
+        $form.DragMove()
+    }
 })
-# å°†æ ‡ç­¾æ·»åŠ åˆ°çª—å£ä¸­
+# ½«±êÇ©Ìí¼Óµ½´°¿ÚÖĞ
 $form.Content = $label
 
-# æ·»åŠ Closedäº‹ä»¶å¤„ç†ç¨‹åºï¼Œç”¨äºå…³é—­çª—å£æ—¶åœæ­¢å®šæ—¶å™¨å¹¶é‡Šæ”¾èµ„æº
+# Ìí¼ÓClosedÊÂ¼ş´¦Àí³ÌĞò£¬ÓÃÓÚ¹Ø±Õ´°¿ÚÊ±Í£Ö¹¶¨Ê±Æ÷²¢ÊÍ·Å×ÊÔ´
 $form.add_Closed({
-    # åœæ­¢å®šæ—¶å™¨
+    # Í£Ö¹¶¨Ê±Æ÷
     $timer.Stop()
     $timer = $null
-	# åˆ é™¤æ‰˜ç›˜å›¾æ ‡
-	$notifyIcon.Visible = $false
-	$notifyIcon.Dispose()
-    # é‡Šæ”¾èµ„æº
+    # É¾³ıÍĞÅÌÍ¼±ê
+    $notifyIcon.Visible = $false
+    $notifyIcon.Dispose()
+    # ÊÍ·Å×ÊÔ´
     $label = $null
     $form = $null
 })
 
-# å¯åŠ¨å®šæ—¶å™¨å¹¶æ˜¾ç¤ºçª—å£
+# Æô¶¯¶¨Ê±Æ÷²¢ÏÔÊ¾´°¿Ú
 $timer.Start()
 $form.ShowDialog() | Out-Null
