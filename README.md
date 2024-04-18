@@ -13,3 +13,7 @@ Show time on screen.
 ## remoteBoot [→](remoteBoot/README.md)
 
 Boot remote host based on mqtt.
+
+## delOllama [→](delOllama/README.md)
+
+Remove ollama on Linux.

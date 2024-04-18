@@ -11,3 +11,7 @@
 ## remoteBoot [→](remoteBoot)
 
 通过MQTT启动远程主机。
+
+## delOllama [→](delOllama/README.md)
+
+在Linux中卸载ollama。
