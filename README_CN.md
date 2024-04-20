@@ -2,6 +2,10 @@
 
 小巧又有用的工具。
 
+## tinyMonitor [→](tinyMonitor/README.md)
+
+Python写的简单性能监控程序。
+
 ## scTime [→](scTime)
 
 在屏幕上显示时间。
