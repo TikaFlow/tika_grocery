@@ -1,5 +1,7 @@
+English | [简体中文](README_CN.md)
+
 # remoteBoot
 
-通过MQTT启动远程主机。
+Boot remote host based on mqtt.
 
-> `bat`脚本必须用`GBK`编码，`CRLF`换行符。
+> The `bat` script must be encoded in `GBK` and use `CRLF` line endings.

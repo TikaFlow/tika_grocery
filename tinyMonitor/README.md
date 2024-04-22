@@ -1,36 +1,39 @@
-# TinyMonitor
+English | [简体中文](README_CN.md)
 
-简单的性能监控程序。
+ # TinyMonitor
 
-# 安装
+A simple performance monitoring program.
 
-## 方式一
+# Installation
 
-直接在[release](https://github.com/TikaFlow/tika_grocery/releases)中下载可执行文件。
+## Method 1
 
-## 方式二
+Download the executable file from the [release](https://github.com/TikaFlow/tika_grocery/releases/tag/tinyMonitor) in the repository.
 
-在有`Python`环境时直接运行`.py`脚本。
+## Method 2
+
+Run the `.py` script directly in a Python environment.
 
 ```powershell
 python monitor.py
 ```
 
-# 使用
+# Usage
 
-- 拖动悬浮窗到任意位置，将自动贴边。
-- 左键点击托盘图标切换是否开启鼠标穿透，鼠标穿透时无法拖动悬浮窗。
-- 右键点击托盘图标打开设置菜单，可以临时隐藏悬浮窗以及设置哪些信息展示。
+- Drag the floating window to any position and it will automatically stick to the edge.
+- Left-click the tray icon to toggle mouse pass-through, which cannot be dragged when mouse pass-through is enabled.
+- Right-click the tray icon to open the settings menu, where you can temporarily hide the floating window and set which information to display.
+- The selected information will be displayed at the end, which can be used to adjust the display order.
 
-# 打包
+# Packaging
 
-## #1、安装打包工具
+## Step 1: Install the packaging tool
 
 ```powershell
 pip install pyinstaller
 ```
 
-## #2、打包
+## Step 2: Package
 
 ```powershell
 pyinstaller monitor.spec

@@ -2,20 +2,18 @@
 
 小巧又有用的工具。
 
-## tinyMonitor [→](tinyMonitor/README.md)
+## tinyMonitor [→](tinyMonitor/README_CN.md)
 
-Python写的简单性能监控程序。
+简单的性能监控程序。
 
-## scTime [→](scTime)
+## delOllama [→](delOllama/README_CN.md)
 
-在屏幕上显示时间。
+在Linux中卸载ollama。
 
-> 追剧防猝死.user.js是一个油猴脚本，仅在浏览器生效。
-
-## remoteBoot [→](remoteBoot)
+## remoteBoot [→](remoteBoot/README_CN.md)
 
 通过MQTT启动远程主机。
 
-## delOllama [→](delOllama/README.md)
+## scTime [→](scTime/README_CN.md)
 
-在Linux中卸载ollama。
+在屏幕上显示时间。

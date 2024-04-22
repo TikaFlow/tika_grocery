@@ -1,23 +1,21 @@
-# tika_grocery
-
 English | [简体中文](README_CN.md)
+
+# tika_grocery
 
 Something small but useful.
 
 ## tinyMonitor [→](tinyMonitor/README.md)
 
-A simple performance monitor, written with Python.
+A simple performance monitoring program.
 
-## scTime [→](scTime)
+## delOllama [→](delOllama/README.md)
 
-Show time on screen.
-
-> 追剧防猝死.user.js is a Tampermonkey script, only effective in the browser.
+Remove ollama on Linux.
 
 ## remoteBoot [→](remoteBoot/README.md)
 
 Boot remote host based on mqtt.
 
-## delOllama [→](delOllama/README.md)
+## scTime [→](scTime/README.md)
 
-Remove ollama on Linux.
+Show time on screen.

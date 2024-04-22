@@ -8,6 +8,17 @@ status() { echo ">>> $*" >&2; }
 error() { echo "Error: $*"; exit 1; }
 available() { command -v "$1" >/dev/null; }
 
+# Get user confirmation
+status "You are about to uninstall Ollama, which will completely remove Ollama and any data created by ollama."
+status "Are you sure you want to continue? If you know what you're Doing, lease enter 'yes' to proceed, otherwise the uninstallation will be canceled."
+
+read -r USER_CONFIRMATION
+
+if [[ "$USER_CONFIRMATION" != "yes" ]]; then
+    status "Uninstallation operation has been canceled."
+    exit 1
+fi
+
 # Check if the user has root or sudo permissions
 SUDO=""
 if [ "$(id -u)" -ne 0 ]; then
@@ -17,17 +28,6 @@ if [ "$(id -u)" -ne 0 ]; then
     fi
     # Use sudo for subsequent commands
     SUDO="sudo"
-fi
-
-# Get user confirmation
-status "You are about to uninstall Ollama, which will completely remove Ollama and its generated data."
-status "Are you sure you want to continue? Please enter 'yes' to proceed, otherwise the uninstallation will be canceled."
-
-read -r USER_CONFIRMATION
-
-if [[ "$USER_CONFIRMATION" != "yes" ]]; then
-    status "Uninstallation operation has been canceled."
-    exit 1
 fi
 
 # Stop and disable ollama systemd service (if it exists)
@@ -55,7 +55,7 @@ if available systemctl; then
 fi
 
 # Delete ollama user and group
-if id ollama >/dev/null 2>&1; then
+if id ollama &>/dev/null; then
     status "Deleting ollama user and group..."
     # Remove users in group ollama
     for USER in $(cat /etc/group | grep ollama: | cut -d: -f4); do
@@ -64,13 +64,18 @@ if id ollama >/dev/null 2>&1; then
     $SUDO userdel -r ollama || true  # Use -r to delete home directory
 fi
 
-# Delete Ollama binary file
-if which ollama >/dev/null 2>&1; then
+# Delete Ollama models and binary file
+if which ollama &>/dev/null; then
+    # Remove ollama models
+    for MODEL in $(ollama list | tail +2 | cut -f1); do
+        status "Deleting model: $MODEL..."
+        $SUDO ollama rm "$MODEL" || true
+    done
+
     OLLAMA_PATH=$(which ollama)
     status "Deleting ollama binary file: $OLLAMA_PATH..."
     $SUDO rm -f "$OLLAMA_PATH"
 fi
 
-status "If you have specified the OLLAMA_MODELS variable, you can manually delete it, as this directory stores the downloaded models."
 status "Ollama uninstallation completed.
 "
