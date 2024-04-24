@@ -8,7 +8,7 @@ A simple performance monitoring program.
 
 ## Method 1
 
-Download the executable file from the [release](https://github.com/TikaFlow/tika_grocery/releases/tag/tinyMonitor) in the repository.
+Download the executable file from the [release](https://github.com/TikaFlow/tika_grocery/releases) in the repository.
 
 ## Method 2
 
