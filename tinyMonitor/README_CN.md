@@ -6,7 +6,7 @@
 
 ## 方式一
 
-直接在[release](https://github.com/TikaFlow/tika_grocery/releases/tag/tinyMonitor)中下载可执行文件。
+直接在[release](https://github.com/TikaFlow/tika_grocery/releases)中下载可执行文件。
 
 ## 方式二
 
@@ -19,8 +19,8 @@ python monitor.py
 # 使用
 
 - 拖动悬浮窗到任意位置，将自动贴边。
-- 左键点击托盘图标切换是否开启鼠标穿透，鼠标穿透时无法拖动悬浮窗。
 - 右键点击托盘图标打开设置菜单，可以临时隐藏悬浮窗以及设置哪些信息展示。
+- 为防止误触，可开启鼠标穿透，鼠标穿透时无法拖动悬浮窗。
 - 选中的信息将显示在末尾，可以以此来调整显示顺序。
 
 # 打包

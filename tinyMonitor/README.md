@@ -21,8 +21,8 @@ python monitor.py
 # Usage
 
 - Drag the floating window to any position and it will automatically stick to the edge.
-- Left-click the tray icon to toggle mouse pass-through, which cannot be dragged when mouse pass-through is enabled.
 - Right-click the tray icon to open the settings menu, where you can temporarily hide the floating window and set which information to display.
+- To prevent accidental touch, you can turn on mouse penetration, when the mouse penetration can not drag the floating window.
 - The selected information will be displayed at the end, which can be used to adjust the display order.
 
 # Packaging

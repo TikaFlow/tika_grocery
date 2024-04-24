@@ -1,7 +1,6 @@
 import psutil
 from datetime import datetime
-from collections import deque
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QSystemTrayIcon
 from PyQt5.QtCore import Qt, QMargins, QTimer
 from tray_icon import TrayIcon
 
@@ -9,6 +8,19 @@ class SystemMonitor(QWidget):
     def __init__(self):
         super(SystemMonitor, self).__init__()
         self.initUI()
+
+        self.mouse_drag_pos = None
+        # 设置显示内容
+        self.info_dict = {
+            'cpu':True,
+            'mem':True,
+            'up':True,
+            'down':True
+        }
+        self.info_deque = ['cpu', 'mem', 'up', 'down']
+        net_info = psutil.net_io_counters()
+        self.bytes_sent = net_info.bytes_sent
+        self.bytes_recv = net_info.bytes_recv
 
     def initUI(self):
         screen_geometry = QApplication.desktop().availableGeometry(self)
@@ -20,21 +32,11 @@ class SystemMonitor(QWidget):
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.setStyleSheet("""
             background-color: rgba(0, 0, 0, 0.25);
-            border: 5px solid rgba(0, 0, 0, 0);;
+            border: 5px solid rgba(0, 0, 0, 0);
             border-radius: 5px;
         """)
         # 设置托盘图标
         self.tray_icon = TrayIcon(self)
-
-        # 设置显示内容
-        self.info_dict = {
-            'cpu':True,
-            'mem':True,
-            'up':True,
-            'down':True
-        }
-        self.info_deque = ['cpu', 'mem', 'up', 'down']
-        self.mouse_drag_pos = None
 
         # 创建一个合并的标签并设置样式
         now = datetime.now()
@@ -49,17 +51,17 @@ class SystemMonitor(QWidget):
         self.timer.timeout.connect(self.update_info)
         self.timer.start(500)
 
-        # 设置窗口布局
-        self.init_update_info()
-        self.show()  # 默认显示窗口
+        self.show()
 
-    def toggle_penetrate(self, transparency):
-        vs = self.isVisible()
-        if transparency:
+    def toggle_penetrate(self):
+        flag = False
+        if self.windowFlags() & Qt.WindowTransparentForInput:
             self.setWindowFlags(self.windowFlags() & ~Qt.WindowTransparentForInput)
         else:
             self.setWindowFlags(self.windowFlags() | Qt.WindowTransparentForInput)
-        self.setVisible(vs)
+            flag = True
+        self.show()
+        return flag
 
     def update_info(self):
         # 创建时间、CPU和MEM的信息字符串
@@ -81,7 +83,11 @@ class SystemMonitor(QWidget):
         })
         self.info_label.setText(total_info)
         
-        self.init_update_info(net_info)
+        self.bytes_sent = net_info.bytes_sent
+        self.bytes_recv = net_info.bytes_recv
+
+        self.info_label.adjustSize()
+        self.adjustSize()
 
     def get_total_info(self, dict):
         # 设置合并标签的文本
@@ -96,13 +102,6 @@ class SystemMonitor(QWidget):
 
         return total_info
         
-    def init_update_info(self, net_info=psutil.net_io_counters()):
-        self.bytes_sent = net_info.bytes_sent
-        self.bytes_recv = net_info.bytes_recv
-
-        self.info_label.adjustSize()
-        self.adjustSize()
-
     def convertUnit(self, delta, flow):
         bps = flow * 1000 / delta
         # 转换bps为合适的单位

@@ -5,7 +5,7 @@ a = Analysis(
     ['monitor.py'],
     pathex=[],
     binaries=[],
-    datas=[('static/img', 'static/img')],
+    datas=[],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

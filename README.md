@@ -4,6 +4,10 @@ English | [简体中文](README_CN.md)
 
 Something small but useful.
 
+## javatuples [→](javatuples/README.md)
+
+A library to create and use tuples in Java.
+
 ## tinyMonitor [→](tinyMonitor/README.md)
 
 A simple performance monitoring program.
