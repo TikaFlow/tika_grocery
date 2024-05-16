@@ -1,8 +1,12 @@
-English | [简体中文](README_CN.md)
+English | [简体中文](README_zh-CN.md)
 
 # tika_grocery
 
 Something small but useful.
+
+## cleanCSDN [→](cleanCSDN/README.md)
+
+`CSDN` without login, without following, without copy restriction, and removing some ads.
 
 ## javatuples [→](javatuples/README.md)
 

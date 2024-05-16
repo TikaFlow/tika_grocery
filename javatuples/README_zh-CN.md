@@ -30,7 +30,7 @@
 </dependency>
 ```
 
-如果无法从`maven`仓库获取，我这里也有编译后的`javatuples-1.2.jar`文件。
+如果无法从`maven`仓库获取，我[这里](https://tikaflow.github.io/static/tika_grocery/javatuples-1.2.jar)也有编译后的`javatuples-1.2.jar`文件。
 
 ### 第一步：安装jar包到maven仓库
 

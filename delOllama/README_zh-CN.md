@@ -1,12 +1,10 @@
-English | [简体中文](README_zh-CN.md)
-
 # delOllama
 
-Remove ollama on Linux.
+在Linux中卸载ollama。
 
-## Usage
+## 使用方法
 
-run command in `bash`:
+在`bash`中运行命令：
 
 ```bash
 curl -fsSL https://tikaflow.github.io/static/tika_gorcery/delOllama.sh | sudo bash

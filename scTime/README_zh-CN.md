@@ -4,4 +4,4 @@
 
 > scTime.user.js是一个油猴脚本，仅在浏览器生效。
 
-## 已升级为[tinyMonitor](../tinyMonitor/README_CN.md)
+## 已升级为[tinyMonitor](../tinyMonitor/README_zh-CN.md)

@@ -1,4 +1,4 @@
-English | [简体中文](README_CN.md)
+English | [简体中文](README_zh-CN.md)
 
 # Java Tuples
 
@@ -32,7 +32,7 @@ Add the following dependency to your project's `pom.xml` file:
 </dependency>
 ```
 
-If you cannot access the `maven` repository, I also have the compiled `javatuples-1.2.jar` file.
+If you cannot access the `maven` repository, I also [provide](https://tikaflow.github.io/static/tika_grocery/javatuples-1.2.jar) the compiled `javatuples-1.2.jar` file.
 
 ### Step 1: Install the jar package to the maven repository
 
